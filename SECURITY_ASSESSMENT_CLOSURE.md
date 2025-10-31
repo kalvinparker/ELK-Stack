@@ -44,3 +44,8 @@ Appendix: Key Artifacts
 
 Signed,
 Automated Assessment & Closure Assistant
+
+Repository markers
+------------------
+- Placeholder-check PR: https://github.com/kalvinparker/ELK-Stack/pull/new/ci/add-envplaceholder-check
+- Closure tag: v0.1-security-closed
