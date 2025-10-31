@@ -4,3 +4,4 @@ httpx==0.24.1
 # nicegui 1.5.0 wasn't available; pin to a published 1.4.x release compatible with FastAPI
 nicegui==1.4.37
 # starlette is a dependency of fastapi; allow pip to resolve a compatible version
+pytest-cov==4.1.0
