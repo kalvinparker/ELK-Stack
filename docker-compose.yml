@@ -294,6 +294,8 @@ services:
       - "/sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro"
       - "/proc:/hostfs/proc:ro"
       - "/:/hostfs:ro"
+      - ./app:/app
+      - ./tests:/tests
     ports:
       - 8000:8000
     restart: unless-stopped
