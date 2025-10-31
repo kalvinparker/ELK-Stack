@@ -51,10 +51,7 @@ jobs:
       # This command runs the tests inside our built container and generates the coverage report.
       # Note: This assumes you have a 'pytest' command or similar test runner configured.
       - name: Run tests and generate coverage report
-        run: |
-          docker compose run --rm \
-            -e PYTHONPATH=/app \
-            webapp pytest --cov=app --cov-report=xml /tests
+        run: docker compose run --rm webapp pytest --cov=. --cov-report=xml /tests
       # This is the final step from the Codecov instructions.
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4 # Pinned to the latest major version
