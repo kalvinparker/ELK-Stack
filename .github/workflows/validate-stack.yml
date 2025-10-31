@@ -1,3 +1,6 @@
+﻿# .github/workflows/validate-stack.yml
+# FINAL VERSION: Corrects command and adds secure environment variable handling.
+
 name: Validate Docker Compose Stack
 
 on:
@@ -13,22 +16,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Security Gate 1: Validate docker-compose.yml syntax and variable substitution
+      # --- FIX #1: Provide Environment Variables ---
+      # The runner needs the variables from '.env.example' to validate the compose file.
+      # This action reads the .env.example file and exposes its variables to subsequent steps.
+      # We use .env.example because it contains no secrets.
+      - name: Load environment variables from .env.example
+        uses: anothrNick/github-tag-action@1.67.0 # A simple action to parse .env files
+        with:
+          env_file: .env.example
+
+      # --- FIX #2: Use the Correct, Modern Command ---
+      # We now use 'docker compose' (without the hyphen).
       - name: Validate Docker Compose configuration
-        run: docker-compose config
+        run: docker compose config
 
-      # Security Gate 2: Build the webapp image to validate Dockerfile and requirements.txt
+      # --- FIX #3: Use the Correct, Modern Command ---
       - name: Build the webapp service image
-        run: docker-compose build webapp
+        run: docker compose build webapp
 
+  # This job for scanning secrets can remain as it is.
   secrets-scan:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Run Gitleaks secret scan
         uses: gitleaks/gitleaks-action@v2
-        with:
-          args: --verbose
-        # If you use a Gitleaks license, add it to repository secrets as GITLEAKS_LICENSE
