@@ -6,6 +6,12 @@
 [![codecov](https://codecov.io/gh/kalvinparker/ELK-Stack/branch/main/graph/badge.svg)](https://codecov.io/gh/kalvinparker/ELK-Stack)
 [![coverage](https://github.com/kalvinparker/ELK-Stack/actions/workflows/coverage.yml/badge.svg?branch=main)](https://github.com/kalvinparker/ELK-Stack/actions/workflows/coverage.yml)
 
+## Security Assessment: CLOSED
+
+The security assessment for this fork has been completed and formally closed. See the closure report for details and evidence:
+
+[SECURITY_ASSESSMENT_CLOSURE.md](SECURITY_ASSESSMENT_CLOSURE.md)
+
 This repository is a fork of the original "Getting started with the Elastic Stack and Docker Compose: Part 2" example. The upstream content (blog and demo) is maintained by Elastic and available at:
 
 - Upstream blog: https://www.elastic.co/blog/getting-started-with-the-elastic-stack-and-docker-compose-part-2
