@@ -3,6 +3,9 @@
 
 [![validate-stack.yml](https://github.com/kalvinparker/ELK-Stack/actions/workflows/validate-stack.yml/badge.svg?branch=main)](https://github.com/kalvinparker/ELK-Stack/actions/workflows/validate-stack.yml)
 
+[![codecov](https://codecov.io/gh/kalvinparker/ELK-Stack/branch/main/graph/badge.svg)](https://codecov.io/gh/kalvinparker/ELK-Stack)
+[![coverage](https://github.com/kalvinparker/ELK-Stack/actions/workflows/coverage.yml/badge.svg?branch=main)](https://github.com/kalvinparker/ELK-Stack/actions/workflows/coverage.yml)
+
 This repository is a fork of the original "Getting started with the Elastic Stack and Docker Compose: Part 2" example. The upstream content (blog and demo) is maintained by Elastic and available at:
 
 - Upstream blog: https://www.elastic.co/blog/getting-started-with-the-elastic-stack-and-docker-compose-part-2
@@ -24,6 +27,8 @@ NOTE: This README documents both the original upstream guidance and the changes 
 - Added a small README "Getting Started" section and documented recommended `.env` values for local dev.
 
 If you'd like a full diff or a PR link for these changes, I can include that here (or link to the branch/PR I used).
+
+Branch/PR used for these changes: [chore/move-digests-to-env](https://github.com/kalvinparker/ELK-Stack/compare/main...chore/move-digests-to-env) — create/view a PR: https://github.com/kalvinparker/ELK-Stack/pull/new/chore/move-digests-to-env
 
 ---
 
