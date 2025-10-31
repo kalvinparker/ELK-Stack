@@ -1,5 +1,7 @@
 ﻿# .github/workflows/validate-stack.yml
-# FINAL VERSION: Corrects command and adds secure environment variable handling.
+# CR-20251031-01: Assess Security Posture of Refactored ELK Stack Configuration
+# CR-20251031-02: Verification of Security Control Remediation and Formal Closure of Assessment: Corrects command and adds secure environment variable handling.
+# CR-20251031-03: Investigate and Remediate Failure of the 'Load environment variables' Step in CI/CD Pipeline: Removes the broken third-party action and uses the native '--env-file' flag.
 
 name: Validate Docker Compose Stack
 
@@ -16,8 +18,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # This step uses the modern --env-file flag, which is simpler and avoids a third-party action.
-      # It loads variables from the non-secret .env.example file for validation.
+      # CORRECTED STEP: We use the modern 'docker compose' command with the '--env-file' flag.
+      # This tells Compose to load its variables directly from our non-secret .env.example file.
+      # This removes the need for any third-party actions to manage environment variables.
       - name: Validate Docker Compose configuration
         run: docker compose --env-file .env.example config
 
