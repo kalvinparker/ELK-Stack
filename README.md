@@ -1,6 +1,8 @@
 
 # ELK-Stack (forked)
 
+[![validate-stack.yml](https://github.com/kalvinparker/ELK-Stack/actions/workflows/validate-stack.yml/badge.svg?branch=main)](https://github.com/kalvinparker/ELK-Stack/actions/workflows/validate-stack.yml)
+
 This repository is a fork of the original "Getting started with the Elastic Stack and Docker Compose: Part 2" example. The upstream content (blog and demo) is maintained by Elastic and available at:
 
 - Upstream blog: https://www.elastic.co/blog/getting-started-with-the-elastic-stack-and-docker-compose-part-2
