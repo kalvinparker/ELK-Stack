@@ -31,7 +31,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
+      # We need to fetch the full history for gitleaks to work reliably on merge events.
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Run Gitleaks secret scan
         uses: gitleaks/gitleaks-action@v2
 
@@ -51,7 +54,7 @@ jobs:
         run: |
           docker compose run --rm \
             -e PYTHONPATH=/app \
-            webapp pytest --cov=app --cov-report=xml tests/
+            webapp pytest --cov=app --cov-report=xml /tests
       # This is the final step from the Codecov instructions.
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4 # Pinned to the latest major version
