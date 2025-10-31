@@ -2,7 +2,8 @@
 # CR-20251031-01: Assess Security Posture of Refactored ELK Stack Configuration
 # CR-20251031-02: Verification of Security Control Remediation and Formal Closure of Assessment - Corrects command and adds secure environment variable handling.
 # CR-20251031-03: Investigate and Remediate Failure of the 'Load environment variables' Step in CI/CD Pipeline - Removes the broken third-party action and uses the native '--env-file' flag.
-#CR-20251031-04: Investigate and Remediate Failure of the 'Validate Docker Compose configuration' Step - Corrects command to modern 'docker compose' and uses '--env-file'.
+# CR-20251031-04: Investigate and Remediate Failure of the 'Validate Docker Compose configuration' Step - Corrects command to modern 'docker compose' and uses '--env-file'.
+# CR-20251031-05: Assess and Implement Codecov Integration into the CI/CD Pipeline - Adds a dedicated job for running tests and uploading coverage reports.
 
 name: Validate Docker Compose Stack
 
@@ -18,12 +19,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       # This step uses the modern 'docker compose' command with the '--env-file' flag.
       # This tells Compose to load its variables directly from our non-secret .env.example file.
       - name: Validate Docker Compose configuration
         run: docker compose --env-file .env.example config
-
       - name: Build the webapp service image
         run: docker compose --env-file .env.example build webapp
 
@@ -34,3 +33,25 @@ jobs:
         uses: actions/checkout@v4
       - name: Run Gitleaks secret scan
         uses: gitleaks/gitleaks-action@v2
+
+  test-and-coverage:
+    # This job will only start after the 'validate' job has finished successfully.
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      # We must build the image again in this job, as jobs run on separate runners.
+      - name: Build webapp image for testing
+        run: docker compose --env-file .env.example build webapp
+      # This command runs the tests inside our built container and generates the coverage report.
+      # Note: This assumes you have a 'pytest' command or similar test runner configured.
+      - name: Run tests and generate coverage report
+        run: docker compose run --rm webapp pytest --cov=./ --cov-report=xml
+      # This is the final step from the Codecov instructions.
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4 # Pinned to the latest major version
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          # The file name is important and must match the output of the previous step.
+          files: ./coverage.xml
