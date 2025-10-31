@@ -288,6 +288,8 @@ services:
   webapp:
     build:
       context: app
+      dockerfile: dockerfile
+    working_dir: /app  
     volumes:
       - "/var/lib/docker/containers:/var/lib/docker/containers:ro"
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
@@ -296,6 +298,8 @@ services:
       - "/:/hostfs:ro"
       - ./app:/app
       - ./tests:/tests
+    env_file:
+      - .env
     ports:
       - 8000:8000
     restart: unless-stopped
