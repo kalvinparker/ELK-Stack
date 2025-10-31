@@ -1,5 +1,6 @@
-elastic-apm==6.17.0
-fastapi==0.100.0
+elastic-apm==6.18.0
+fastapi==0.109.2
 httpx==0.24.1
-nicegui==1.3.2
-starlette==0.27.0
+# nicegui 1.5.0 wasn't available; pin to a published 1.4.x release compatible with FastAPI
+nicegui==1.4.37
+# starlette is a dependency of fastapi; allow pip to resolve a compatible version
