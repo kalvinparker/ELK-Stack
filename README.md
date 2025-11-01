@@ -96,6 +96,13 @@ Queue Full Error: https://www.elastic.co/guide/en/apm/server/current/common-prob
 docker-compose -f "docker-compose.yml" build webapp
 ```
 
+---
+
+Security policy
+
+For reporting security issues or to review our security policy, see `SECURITY.md` at the repository root.
+
+
 3. Start the stack (this will pull images and start services):
 
 ```powershell
