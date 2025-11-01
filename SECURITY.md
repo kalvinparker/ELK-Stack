@@ -40,3 +40,9 @@ Maintainers should:
 - Provide clear instructions for reproducing and verifying fixes.
 
 If you are a contributor or user with security questions, please consult this document and contact the maintainers using the reporting methods above.
+
+## Repository
+
+Repository: `ELK-Stack`
+
+Primary contacts / maintainers: update `README.md` with the appropriate email or team contact for this repository.
