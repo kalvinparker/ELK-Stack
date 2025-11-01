@@ -45,4 +45,4 @@ If you are a contributor or user with security questions, please consult this do
 
 Repository: `ELK-Stack`
 
-Primary contacts / maintainers: update `README.md` with the appropriate email or team contact for this repository.
+Primary contacts / maintainers: kalvinparker1+github@gmail.com
