@@ -43,6 +43,6 @@ If you are a contributor or user with security questions, please consult this do
 
 ## Repository
 
-Repository: `ELK-Stack`
+Repository: `profile-template`
 
 Primary contacts / maintainers: kalvinparker1+github@gmail.com
