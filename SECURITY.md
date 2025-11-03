@@ -1,6 +1,6 @@
-# Security Policy
+﻿# Security Policy
 
-This document provides the high-level security policy for projects that use the `profile-template` as their base. It is intended to be a canonical, easy-to-find security statement that repository owners can adapt per-repo where necessary.
+This document provides the high-level security policy for projects that use the `kalvinparker` as their base. It is intended to be a canonical, easy-to-find security statement that repository owners can adapt per-repo where necessary.
 
 ## Supported Versions
 
@@ -43,6 +43,7 @@ If you are a contributor or user with security questions, please consult this do
 
 ## Repository
 
-Repository: `profile-template`
+Repository: `kalvinparker`
 
 Primary contacts / maintainers: kalvinparker1+github@gmail.com
+
